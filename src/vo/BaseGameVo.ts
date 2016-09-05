@@ -26,6 +26,7 @@ class BaseGameVo extends BaseVo {
     public price: number;
 
     public constructor() {
+        super();
         this.gameManager = GameManager.getInstance();
     }
 }

@@ -3,21 +3,23 @@
  */
 module core {
     //舞台
-    export var stage:egret.Stage;
+    export var stage: egret.Stage;
     //游戏管理
-    export var gameManager:GameManager;
+    export var gameManager: GameManager;
 
     //是否可以播放音乐
-    export var isBackgroundMusic:boolean = true;
+    export var isBackgroundMusic: boolean = true;
     //是否可以播放音效
-    export var isSoundEffect:boolean = true;
+    export var isSoundEffect: boolean = true;
 
     //初始化
-    export function init(stage:egret.Stage):void {
+    export function init(stage: egret.Stage): void {
         core.stage = stage;
 
         core.gameManager = GameManager.getInstance();
+        core.gameManager.initLayer();
+        core.gameManager.initManager();
 
-
+        H5Core.init(stage);
     }
 }
