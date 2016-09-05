@@ -3,14 +3,17 @@
  */
 var core;
 (function (core) {
-    //�Ƿ񲥷ű�������
+    //是否可以播放音乐
     core.isBackgroundMusic = true;
-    //�Ƿ񲥷���Ч
+    //是否可以播放音效
     core.isSoundEffect = true;
-    //��ʼ��
+    //初始化
     function init(stage) {
         core.stage = stage;
-        core.gameManager = manager.GameManager.getInstance();
+        core.gameManager = GameManager.getInstance();
+        core.gameManager.initLayer();
+        core.gameManager.initManager();
+        H5Core.init(stage);
     }
     core.init = init;
 })(core || (core = {}));

@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -642,7 +642,7 @@ var egret;
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -673,7 +673,7 @@ var egret;
     /**
      * @language en_US
      * Tween is the animation easing class of Egret
-     * @see http://docs.egret-labs.org/post/manual/anim/tween.html Tween缓动动画
+     * @see http://edn.egret.com/cn/docs/page/576 Tween ease animation
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/tween/Tween.ts
@@ -681,7 +681,7 @@ var egret;
     /**
      * @language zh_CN
      * Tween是Egret的动画缓动类
-     * @see http://docs.egret-labs.org/post/manual/anim/tween.html Tween ease animation
+     * @see http://edn.egret.com/cn/docs/page/576 Tween缓动动画
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/tween/Tween.ts
@@ -1340,6 +1340,8 @@ var egret;
          */
         p.set = function (props, target) {
             if (target === void 0) { target = null; }
+            //更新当前数据，保证缓动流畅性
+            this._appendQueueProps(props);
             return this._addAction({ f: this._set, o: this, p: [props, target ? target : this._target] });
         };
         /**
