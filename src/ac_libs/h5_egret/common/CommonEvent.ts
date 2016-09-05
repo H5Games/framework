@@ -1,14 +1,16 @@
 /**
- * 游戏事件
- * @Author Ace.c
- * @Time 2016-06-16 14:08
+ * CommonEvent
+ * @Author Ace
+ * @Create 2016-09-04 14:34
  */
-class GameEventDispatcher {
-    //集合
-    private callbackGather:any = {};
+class CommonEvent extends egret.EventDispatcher {
+
+    private eventObjs: any = {};
 
     public constructor() {
-        this.callbackGather = {};
+        super();
+
+        this.eventObjs = {};
     }
 
     /**
@@ -17,12 +19,12 @@ class GameEventDispatcher {
      * @param callback
      * @param thisObj
      */
-    public registEvent(type:any, callback:Function, thisObj:any):void {
+    public registEvent(type: any, callback: Function, thisObj: any): void {
         if (this.checkCallbackIsExist(type, callback, thisObj)) {
             return;
         }
 
-        var list:any[] = this.getCallbackList(type);
+        var list: any[] = this.getCallbackList(type);
         list.push({"callback": callback, "thisObj": thisObj});
     }
 
@@ -32,14 +34,14 @@ class GameEventDispatcher {
      * @param callback
      * @param thisObj
      */
-    public removeEvent(type:any, callback:Function, thisObj:any):void {
+    public removeEvent(type: any, callback: Function, thisObj: any): void {
         if (!this.checkCallbackIsExist(type, callback, thisObj)) {
             return;
         }
 
-        var list:any[] = this.getCallbackList(type);
-        var temp:any;
-        for (var i:number = 0; i < list.length; i++) {
+        var list: any[] = this.getCallbackList(type);
+        var temp: any;
+        for (var i: number = 0; i < list.length; i++) {
             temp = list[i];
             if (temp["callback"] == callback && temp["thisObj"] == thisObj) {
                 list.splice(i, 1);
@@ -51,14 +53,14 @@ class GameEventDispatcher {
     /**
      * 广播事件
      * @param type
-     * @param data
+     * @param args
      */
-    public dispatchEvent(type:any, data?:any):void {
-        var list:any[] = this.getCallbackList(type);
-        var temp:any;
-        for (var i:number = 0; i < list.length; i++) {
+    public dispatch(type: any, args?: any): void {
+        var list: any[] = this.getCallbackList(type);
+        var temp: any;
+        for (var i: number = 0; i < list.length; i++) {
             temp = list[i];
-            temp["callback"].call(temp["thisObj"], data);
+            temp["callback"].call(temp["thisObj"], args);
         }
     }
 
@@ -67,13 +69,13 @@ class GameEventDispatcher {
      * @param type
      * @returns {Function[]}
      */
-    private getCallbackList(type:any):Function[] {
-        var list:any[] = [];
-        if (this.callbackGather.hasOwnProperty(type)) {
-            list = this.callbackGather[type];
+    private getCallbackList(type: any): Function[] {
+        var list: any[] = [];
+        if (this.eventObjs.hasOwnProperty(type)) {
+            list = this.eventObjs[type];
         }
         else {
-            this.callbackGather[type] = list;
+            this.eventObjs[type] = list;
         }
         return list;
     }
@@ -85,11 +87,11 @@ class GameEventDispatcher {
      * @param thisObj
      * @returns {boolean}
      */
-    private checkCallbackIsExist(type:any, callback:Function, thisObj:any):boolean {
-        var isExist:boolean = false;
-        var list:any[] = this.getCallbackList(type);
-        var temp:any;
-        for (var i:number = 0; i < list.length; i++) {
+    private checkCallbackIsExist(type: any, callback: Function, thisObj: any): boolean {
+        var isExist: boolean = false;
+        var list: any[] = this.getCallbackList(type);
+        var temp: any;
+        for (var i: number = 0; i < list.length; i++) {
             temp = list[i];
             if (temp["callback"] == callback && temp["thisObj"] == thisObj) {
                 isExist = true;

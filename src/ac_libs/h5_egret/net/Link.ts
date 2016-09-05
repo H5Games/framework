@@ -2,11 +2,11 @@
  * Created by Ace.C on 2016/4/28.
  */
 module net {
-    export class Link extends event.CustomEvent {
+    export class Link extends CommonEvent {
 
-        //Á¬½Ó³É¹¦
+        //ï¿½ï¿½ï¿½Ó³É¹ï¿½
         public static Connect_Complete:string = "Connect_Complete";
-        //½ÓÊÕ³É¹¦
+        //ï¿½ï¿½ï¿½Õ³É¹ï¿½
         public static Receive_Complete:string = "Receive_Complete";
 
         private static instance:net.Link;
@@ -18,16 +18,16 @@ module net {
             return this.instance;
         }
 
-        //httpÁ¬½Ó
+        //httpï¿½ï¿½ï¿½ï¿½
         public static byHttp:LinkByHttp;
-        //socketÁ¬½Ó
+        //socketï¿½ï¿½ï¿½ï¿½
         public static bySocket:LinkBySocket;
 
-        //µØÖ·
+        //ï¿½ï¿½Ö·
         public static host:string;
-        //¶Ë¿Ú
+        //ï¿½Ë¿ï¿½
         public static port:number;
-        //Êý¾ÝÇëÇó·½·¨
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó·½·ï¿½
         public static method:string = egret.HttpMethod.POST;
 
         public constructor() {
@@ -35,7 +35,7 @@ module net {
         }
 
         /**
-         * Á¬½Ó·þÎñÆ÷
+         * ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½
          * @param host
          * @param port
          */
@@ -53,7 +53,7 @@ module net {
         }
 
         /**
-         * ·¢ËÍÊý¾Ý
+         * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
          * @param data
          */
         public static send(data:any):void{
@@ -68,7 +68,7 @@ module net {
         }
 
         /**
-         * ÊÇ·ñÒÑ¾­Á¬½Ó
+         * ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
          * @returns {boolean}
          */
         public static get connected():boolean {
