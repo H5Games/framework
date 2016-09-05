@@ -1,7 +1,7 @@
 /**
  * Created by Ace.C on 2016/4/15.
  */
-class GameManager extends GameEventDispatcher {
+class GameManager extends CommonEvent {
 
     private static _instance:GameManager;
 

@@ -3,7 +3,7 @@
  * @Author Ace.c
  * @Create 2016-09-05 15:38
  */
-class ItemVo extends GameVo{
+class ItemVo extends BaseGameVo{
 
     //最大叠加数量
     public maxCount:number;

@@ -1,7 +1,7 @@
 /**
  * Created by Ace.C on 2016/4/15.
  */
-class BaseAlert extends BaseSprite {
+class BaseAlert extends GameSprite {
     public constructor() {
         super();
     }

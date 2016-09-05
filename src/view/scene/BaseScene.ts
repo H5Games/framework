@@ -1,7 +1,7 @@
 /**
  * Created by Ace.C on 2016/4/15.
  */
-class BaseScene extends BaseSprite {
+class BaseScene extends GameSprite {
 
     public constructor() {
         super();

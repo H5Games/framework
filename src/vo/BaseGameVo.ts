@@ -1,9 +1,9 @@
 /**
- * GameVo
+ * BaseGameVo
  * @Author Ace.c
  * @Create 2016-09-05 15:44
  */
-class GameVo extends BaseVo {
+class BaseGameVo extends BaseVo {
 
     //游戏管理器
     public gameManager: GameManager;

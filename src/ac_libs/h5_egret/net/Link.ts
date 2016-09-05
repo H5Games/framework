@@ -4,11 +4,6 @@
 module net {
     export class Link extends CommonEvent {
 
-        //���ӳɹ�
-        public static Connect_Complete:string = "Connect_Complete";
-        //���ճɹ�
-        public static Receive_Complete:string = "Receive_Complete";
-
         private static instance:net.Link;
 
         public static getInstance():net.Link {
@@ -18,16 +13,18 @@ module net {
             return this.instance;
         }
 
-        //http����
+        //连接完成
+        public static Connect_Complete:string = "Connect_Complete";
+        //接收完成
+        public static Receive_Complete:string = "Receive_Complete";
+
+        //http连接
         public static byHttp:LinkByHttp;
-        //socket����
+        //socket连接
         public static bySocket:LinkBySocket;
 
-        //��ַ
         public static host:string;
-        //�˿�
         public static port:number;
-        //�������󷽷�
         public static method:string = egret.HttpMethod.POST;
 
         public constructor() {
@@ -35,7 +32,6 @@ module net {
         }
 
         /**
-         * ���ӷ�����
          * @param host
          * @param port
          */
@@ -43,32 +39,30 @@ module net {
             this.host = host;
             this.port = port;
 
-            switch (acore.linkType) {
-                case config.LinkType.http:
+            switch (H5Core.linkType) {
+                case LinkType.http:
                     break;
-                case config.LinkType.socket:
+                case LinkType.socket:
                     this.bySocket.connect(host, port);
                     break;
             }
         }
 
         /**
-         * ��������
          * @param data
          */
         public static send(data:any):void{
-            switch (acore.linkType) {
-                case config.LinkType.http:
+            switch (H5Core.linkType) {
+                case LinkType.http:
                     this.byHttp.send(data);
                     break;
-                case config.LinkType.socket:
+                case LinkType.socket:
                     this.bySocket.send(data);
                     break;
             }
         }
 
         /**
-         * �Ƿ��Ѿ�����
          * @returns {boolean}
          */
         public static get connected():boolean {

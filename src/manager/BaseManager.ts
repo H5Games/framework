@@ -1,7 +1,7 @@
 /**
  * Created by Ace.C on 2016/4/13.
  */
-class BaseManager extends GameEventDispatcher {
+class BaseManager extends CommonEvent {
 
     //游戏管理器
     public gameManager:GameManager;
