@@ -8,13 +8,13 @@ var BasePanel = (function (_super) {
     }
     var d = __define,c=BasePanel,p=c.prototype;
     p.open = function () {
-        _super.prototype.open.call(this);
+        _super.prototype.show.call(this);
         if (!this.gameManager.panelLayer.contains(this)) {
             this.gameManager.panelLayer.addChild(this);
         }
     };
     p.close = function () {
-        _super.prototype.close.call(this);
+        _super.prototype.hide.call(this);
         if (this.gameManager.panelLayer.contains(this)) {
             this.gameManager.panelLayer.removeChild(this);
         }

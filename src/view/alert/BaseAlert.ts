@@ -7,7 +7,7 @@ class BaseAlert extends GameSprite {
     }
 
     public open():void {
-        super.open();
+        super.show();
 
         if (!this.gameManager.alertLayer.contains(this)) {
             this.gameManager.alertLayer.addChild(this);
@@ -15,7 +15,7 @@ class BaseAlert extends GameSprite {
     }
 
     public close():void {
-        super.close();
+        super.hide();
 
         if (this.gameManager.alertLayer.contains(this)) {
             this.gameManager.alertLayer.removeChild(this);

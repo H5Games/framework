@@ -8,13 +8,13 @@ var BaseAlert = (function (_super) {
     }
     var d = __define,c=BaseAlert,p=c.prototype;
     p.open = function () {
-        _super.prototype.open.call(this);
+        _super.prototype.show.call(this);
         if (!this.gameManager.alertLayer.contains(this)) {
             this.gameManager.alertLayer.addChild(this);
         }
     };
     p.close = function () {
-        _super.prototype.close.call(this);
+        _super.prototype.hide.call(this);
         if (this.gameManager.alertLayer.contains(this)) {
             this.gameManager.alertLayer.removeChild(this);
         }

@@ -8,13 +8,13 @@ var BaseScene = (function (_super) {
     }
     var d = __define,c=BaseScene,p=c.prototype;
     p.open = function () {
-        _super.prototype.open.call(this);
+        _super.prototype.show.call(this);
         if (!this.gameManager.sceneLayer.contains(this)) {
             this.gameManager.sceneLayer.addChild(this);
         }
     };
     p.close = function () {
-        _super.prototype.close.call(this);
+        _super.prototype.hide.call(this);
         if (this.gameManager.sceneLayer.contains(this)) {
             this.gameManager.sceneLayer.removeChild(this);
         }

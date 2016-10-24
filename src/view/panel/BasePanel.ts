@@ -7,7 +7,7 @@ class BasePanel extends GameSprite {
     }
 
     public open():void {
-        super.open();
+        super.show();
 
         if (!this.gameManager.panelLayer.contains(this)) {
             this.gameManager.panelLayer.addChild(this);
@@ -15,7 +15,7 @@ class BasePanel extends GameSprite {
     }
 
     public close():void {
-        super.close();
+        super.hide();
 
         if (this.gameManager.panelLayer.contains(this)) {
             this.gameManager.panelLayer.removeChild(this);

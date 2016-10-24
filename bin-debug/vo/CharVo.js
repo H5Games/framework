@@ -8,7 +8,7 @@ var CharVo = (function (_super) {
     function CharVo() {
         _super.apply(this, arguments);
         //性别
-        this.gender = GenderType.unknow;
+        this.gender = GenderType.unknown;
     }
     var d = __define,c=CharVo,p=c.prototype;
     return CharVo;

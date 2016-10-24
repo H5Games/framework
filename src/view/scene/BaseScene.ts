@@ -8,7 +8,7 @@ class BaseScene extends GameSprite {
     }
 
     public open():void {
-        super.open();
+        super.show();
 
         if (!this.gameManager.sceneLayer.contains(this)) {
             this.gameManager.sceneLayer.addChild(this);
@@ -16,7 +16,7 @@ class BaseScene extends GameSprite {
     }
 
     public close():void {
-        super.close();
+        super.hide();
 
         if (this.gameManager.sceneLayer.contains(this)) {
             this.gameManager.sceneLayer.removeChild(this);
